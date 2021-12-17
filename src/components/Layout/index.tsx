@@ -1,17 +1,25 @@
-import { Box } from '@mui/material';
+import { useState } from 'react';
 
-import { AppBar } from '../AppBar';
+import { Box, Button, Toolbar } from '@mui/material';
 
-interface LayoutProps {
-  children: JSX.Element;
-}
+import TopBar from '../TopBar';
 
-export default function Layout({ children }: LayoutProps) {
+const drawerWidth = 240;
+
+export default function Layout() {
+  const [open, setOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setOpen(!open);
+  };
+
   return (
-    <Box sx={{ flexGrow: 1, bgcolor: 'f2f2f2' }}>
-      <AppBar />
+    <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+      <TopBar open={open} drawerWidth={drawerWidth} />
 
-      {children}
+      <Toolbar />
+
+      <Button onClick={toggleMenu}>teste</Button>
     </Box>
   );
 }
