@@ -3,10 +3,15 @@ import { useState } from 'react';
 import { Box, Button, Toolbar } from '@mui/material';
 
 import TopBar from '../TopBar';
+import Sidebar from '../Sidebar';
+
+interface LayoutProps {
+  children: JSX.Element;
+}
 
 const drawerWidth = 240;
 
-export default function Layout() {
+export default function Layout({ children }: LayoutProps) {
   const [open, setOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -14,12 +19,16 @@ export default function Layout() {
   };
 
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-      <TopBar open={open} drawerWidth={drawerWidth} />
+    <Box sx={{ display: 'flex' }}>
+      <TopBar open={open} marginleft={drawerWidth} />
 
-      <Toolbar />
+      <Sidebar open={open} width={drawerWidth} />
 
-      <Button onClick={toggleMenu}>teste</Button>
+      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+        <Toolbar />
+        <Button onClick={toggleMenu}>teste</Button>
+        {children}
+      </Box>
     </Box>
   );
 }
