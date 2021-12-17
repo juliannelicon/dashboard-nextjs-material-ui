@@ -1,26 +1,15 @@
 import {
   CSSObject,
-  Divider,
   Drawer as MuiDrawer,
   DrawerProps as MuiDrawerProps,
-  List,
-  ListItem,
   styled,
   Theme,
 } from '@mui/material';
+import Menu from './menu';
 
 interface DrawerProps extends MuiDrawerProps {
   width: number;
 }
-
-const DrawerHeader = styled('div')(({ theme }) => ({
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'flex-end',
-  padding: theme.spacing(0, 1),
-  // necessary for content to be below app bar
-  ...theme.mixins.toolbar,
-}));
 
 const openedMixin = (theme: Theme, width: number): CSSObject => ({
   width,
@@ -60,7 +49,11 @@ const Drawer = styled(MuiDrawer, {
   }),
 }));
 
-export default function Sidebar({ open, width }: DrawerProps) {
+interface SideBarProps extends DrawerProps {
+  toggleOpen: () => void;
+}
+
+export default function Sidebar({ open, width, toggleOpen }: SideBarProps) {
   return (
     <>
       <Drawer
@@ -69,20 +62,13 @@ export default function Sidebar({ open, width }: DrawerProps) {
         width={width}
         sx={{ display: { xs: 'none', sm: 'none', md: 'flex', lg: 'flex' } }}
       >
-        <DrawerHeader>{/* <Button>teste</Button> */}</DrawerHeader>
-        <Divider />
-        <List>
-          {['Inicial', 'chat', 'email', 'agenda'].map(text => (
-            <ListItem button key={text}>
-              {text}
-            </ListItem>
-          ))}
-        </List>
+        <Menu toggleOpen={toggleOpen} />
       </Drawer>
 
       <MuiDrawer
         variant="temporary"
         open={open}
+        onClose={toggleOpen}
         ModalProps={{
           keepMounted: true, // Better open performance on mobile.
         }}
@@ -95,15 +81,7 @@ export default function Sidebar({ open, width }: DrawerProps) {
           '& .MuiDrawer-paper': { width },
         }}
       >
-        <List>
-          <DrawerHeader>{/* <Button>teste</Button> */}</DrawerHeader>
-          <Divider />
-          {['Inicial', 'chat', 'email', 'agenda'].map(text => (
-            <ListItem button key={text}>
-              {text}
-            </ListItem>
-          ))}
-        </List>
+        <Menu toggleOpen={toggleOpen} />
       </MuiDrawer>
     </>
   );
