@@ -30,7 +30,7 @@ export default function SubMenu({ item }: SubMenuProps) {
   };
   return (
     <>
-      <ListItem button key={item.id} title={item.title} onClick={toggleModal}>
+      <ListItem button title={item.title} onClick={toggleModal}>
         <ListItemIcon>
           <FontAwesomeIcon icon={item.icon} size="lg" />
         </ListItemIcon>

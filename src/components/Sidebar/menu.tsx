@@ -83,7 +83,7 @@ export default function Menu({ toggleOpen }: MenuProps) {
 
       {lista.map((item: ListaProps) => {
         if (item.subMenu) {
-          return <SubMenu item={item} />;
+          return <SubMenu key={item.id} item={item} />;
         }
         return (
           <ListItem button key={item.id} title={item.title}>

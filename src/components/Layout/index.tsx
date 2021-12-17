@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-import { Box, Toolbar } from '@mui/material';
+import { Box, Toolbar, useMediaQuery, useTheme } from '@mui/material';
 
 import TopBar from '../TopBar';
 import Sidebar from '../Sidebar';
@@ -12,7 +12,14 @@ interface LayoutProps {
 const drawerWidth = 300;
 
 export default function Layout({ children }: LayoutProps) {
-  const [open, setOpen] = useState(true);
+  const theme = useTheme();
+  const [open, setOpen] = useState(false);
+
+  const matches = useMediaQuery(theme.breakpoints.up('md'));
+
+  useEffect(() => {
+    setOpen(matches);
+  }, [matches]);
 
   const toggleOpen = () => {
     setOpen(!open);
