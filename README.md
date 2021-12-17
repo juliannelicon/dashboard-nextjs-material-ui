@@ -2,7 +2,7 @@
 
 ## Tecnologias
 - [Next.js](https://nextjs.org/)
-- [Material-UI](https://mui.com/)
+- [Material-ui](https://mui.com/)
 
 ## Como executar
 
