@@ -12,7 +12,7 @@ interface LayoutProps {
 const drawerWidth = 300;
 
 export default function Layout({ children }: LayoutProps) {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
 
   const toggleOpen = () => {
     setOpen(!open);

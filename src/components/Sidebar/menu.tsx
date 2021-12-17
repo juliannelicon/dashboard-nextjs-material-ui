@@ -2,18 +2,17 @@ import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import {
-  Collapse,
   Divider,
   IconButton,
   List,
   ListItem,
-  ListItemButton,
   ListItemIcon,
   ListItemText,
   styled,
   Typography,
 } from '@mui/material';
-import { useState } from 'react';
+
+import SubMenu from './subMenu';
 
 const DrawerHeader = styled('div')(({ theme }) => ({
   display: 'flex',
@@ -32,21 +31,34 @@ interface ListaProps {
   id: number;
   title: string;
   icon: IconProp;
+  subMenu?: ListaProps[];
 }
 
 export default function Menu({ toggleOpen }: MenuProps) {
-  const [open, openSet] = useState(false);
-
   const lista: ListaProps[] = [
     { id: 1, title: 'Inicial', icon: 'home' },
     { id: 2, title: 'Chat', icon: 'comment-alt' },
     { id: 3, title: 'E-mail', icon: 'envelope' },
     { id: 4, title: 'Agenda', icon: 'calendar-alt' },
+    {
+      id: 5,
+      title: 'Sistemas',
+      icon: 'desktop',
+      subMenu: [
+        { id: 1, title: 'Sistema 1', icon: 'desktop' },
+        { id: 2, title: 'Sistema 2', icon: 'desktop' },
+      ],
+    },
+    {
+      id: 6,
+      title: 'Serviços',
+      icon: 'user-cog',
+      subMenu: [
+        { id: 1, title: 'Serviço 1', icon: 'user-cog' },
+        { id: 2, title: 'Serviço 2', icon: 'user-cog' },
+      ],
+    },
   ];
-
-  const toggleModal = () => {
-    openSet(!open);
-  };
 
   return (
     <List component="nav" sx={{ paddingTop: 0 }}>
@@ -69,49 +81,19 @@ export default function Menu({ toggleOpen }: MenuProps) {
 
       <Divider />
 
-      {lista.map((item: ListaProps) => (
-        <ListItem button key={item.id}>
-          <ListItemIcon>
-            <FontAwesomeIcon icon={item.icon} size="lg" />
-          </ListItemIcon>
-          <ListItemText primary={item.title} />
-        </ListItem>
-      ))}
-
-      <ListItem button onClick={toggleModal}>
-        <ListItemIcon>
-          <FontAwesomeIcon icon="desktop" size="lg" />
-        </ListItemIcon>
-
-        <ListItemText primary="Sistemas" />
-
-        <ListItemIcon>
-          {open ? (
-            <FontAwesomeIcon icon="angle-down" size="lg" />
-          ) : (
-            <FontAwesomeIcon icon="angle-right" size="lg" />
-          )}
-        </ListItemIcon>
-      </ListItem>
-
-      <Collapse in={open} timeout="auto" unmountOnExit>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 4 }}>
+      {lista.map((item: ListaProps) => {
+        if (item.subMenu) {
+          return <SubMenu item={item} />;
+        }
+        return (
+          <ListItem button key={item.id} title={item.title}>
             <ListItemIcon>
-              <FontAwesomeIcon icon="desktop" size="sm" />
+              <FontAwesomeIcon icon={item.icon} size="lg" />
             </ListItemIcon>
-
-            <ListItemText primary="Sistema 1" />
-          </ListItemButton>
-          <ListItemButton sx={{ pl: 4 }}>
-            <ListItemIcon>
-              <FontAwesomeIcon icon="desktop" size="sm" />
-            </ListItemIcon>
-
-            <ListItemText primary="Sistema 2" />
-          </ListItemButton>
-        </List>
-      </Collapse>
+            <ListItemText primary={item.title} />
+          </ListItem>
+        );
+      })}
     </List>
   );
 }

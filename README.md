@@ -3,6 +3,7 @@
 ## Tecnologias
 - [Next.js](https://nextjs.org/)
 - [Material-ui](https://mui.com/)
+- [Font Awesome](https://fontawesome.com/)
 
 ## Como executar
 
