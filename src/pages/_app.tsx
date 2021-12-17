@@ -2,7 +2,9 @@ import type { AppProps } from 'next/app';
 
 import { config, library } from '@fortawesome/fontawesome-svg-core';
 import {
+  faAngleDown,
   faAngleLeft,
+  faAngleRight,
   faBars,
   faCalendarAlt,
   faCommentAlt,
@@ -26,6 +28,8 @@ library.add(
   faDesktop,
   faUserCog,
   faAngleLeft,
+  faAngleRight,
+  faAngleDown,
 );
 
 export default function MyApp({ Component, pageProps }: AppProps) {
