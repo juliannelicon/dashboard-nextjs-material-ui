@@ -29,4 +29,4 @@ O app estará disponível no seu navegador pelo endereço [http://localhost:3000
 
 ## Demonstração
 
-[Demonstração gestor de informações](https://app-dashboard-material.netlify.app/)
+https://app-dashboard-material.netlify.app/
