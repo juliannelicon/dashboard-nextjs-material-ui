@@ -1,4 +1,4 @@
-<h2 align="center">Dashboard</h2>
+<h2 align="center">Sistema Gestor de Informações</h2>
 
 ## Tecnologias
 - [Next.js](https://nextjs.org/)
@@ -25,4 +25,8 @@ Para iniciá-lo, siga os passos abaixo:
 
 ```
 
-O app estará disponível no seu browser pelo endereço [http://localhost:3000](http://localhost:3000).
+O app estará disponível no seu navegador pelo endereço [http://localhost:3000](http://localhost:3000).
+
+## Demonstração
+
+[Demonstração gestor de informações](https://app-dashboard-material.netlify.app/)
