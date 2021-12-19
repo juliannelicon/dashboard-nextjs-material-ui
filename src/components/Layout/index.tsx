@@ -15,7 +15,7 @@ export default function Layout({ children }: LayoutProps) {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
 
-  const matches = useMediaQuery(theme.breakpoints.up('md'));
+  const matches = useMediaQuery(theme.breakpoints.up('xl'));
 
   useEffect(() => {
     setOpen(matches);
@@ -31,7 +31,10 @@ export default function Layout({ children }: LayoutProps) {
 
       <Sidebar open={open} width={drawerWidth} toggleOpen={toggleOpen} />
 
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+      <Box
+        component="main"
+        sx={{ flexGrow: 1, bgcolor: '#f1f1f1', height: '100vh', p: 2 }}
+      >
         <Toolbar />
 
         {children}
