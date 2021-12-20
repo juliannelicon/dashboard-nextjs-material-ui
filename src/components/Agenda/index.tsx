@@ -45,7 +45,7 @@ export default function Agenda() {
           cell: {
             border: '1px solid',
             borderColor: theme.palette.grey[400],
-            padding: theme.spacing(0.5),
+            padding: theme.spacing(0.25),
           },
           day: {
             color: theme.palette.grey[800],
