@@ -1,6 +1,12 @@
 import { useEffect, useState } from 'react';
 
-import { Box, Toolbar, useMediaQuery, useTheme } from '@mui/material';
+import {
+  Box,
+  Container,
+  Toolbar,
+  useMediaQuery,
+  useTheme,
+} from '@mui/material';
 
 import TopBar from '../TopBar';
 import Sidebar from '../Sidebar';
@@ -36,14 +42,19 @@ export default function Layout({ children }: LayoutProps) {
         sx={{
           p: 2,
           flexGrow: 1,
-          bgcolor: '#f1f1f1',
           height: '100vh',
           overflow: 'auto',
+          backgroundColor: theme =>
+            theme.palette.mode === 'light'
+              ? theme.palette.grey[100]
+              : theme.palette.grey[900],
         }}
       >
         <Toolbar />
 
-        {children}
+        <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
+          {children}
+        </Container>
       </Box>
     </Box>
   );
