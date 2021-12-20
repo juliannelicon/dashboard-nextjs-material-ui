@@ -40,7 +40,6 @@ export default function Layout({ children }: LayoutProps) {
       <Box
         component="main"
         sx={{
-          p: 2,
           flexGrow: 1,
           height: '100vh',
           overflow: 'auto',

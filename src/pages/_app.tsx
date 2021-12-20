@@ -6,10 +6,12 @@ import {
   faAngleLeft,
   faAngleRight,
   faBars,
+  faBuilding,
   faCalendarAlt,
   faCommentAlt,
   faDesktop,
   faEnvelope,
+  faFileAlt,
   faHome,
   faUserCog,
 } from '@fortawesome/free-solid-svg-icons';
@@ -30,6 +32,8 @@ library.add(
   faAngleLeft,
   faAngleRight,
   faAngleDown,
+  faBuilding,
+  faFileAlt,
 );
 
 export default function MyApp({ Component, pageProps }: AppProps) {

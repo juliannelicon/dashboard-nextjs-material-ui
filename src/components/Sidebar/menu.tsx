@@ -36,26 +36,50 @@ interface ListaProps {
 
 export default function Menu({ toggleOpen }: MenuProps) {
   const lista: ListaProps[] = [
-    { id: 1, title: 'Inicial', icon: 'home' },
+    { id: 1, title: 'Início', icon: 'home' },
     { id: 2, title: 'Chat', icon: 'comment-alt' },
     { id: 3, title: 'E-mail', icon: 'envelope' },
     { id: 4, title: 'Agenda', icon: 'calendar-alt' },
     {
       id: 5,
+      title: 'Institucional',
+      icon: 'building',
+      subMenu: [
+        { id: 1, title: 'Sobre instituição', icon: 'building' },
+        { id: 2, title: 'Departamento 1', icon: 'building' },
+        { id: 3, title: 'Departamento 2', icon: 'building' },
+        { id: 4, title: 'Departamento 3', icon: 'building' },
+      ],
+    },
+    {
+      id: 6,
       title: 'Sistemas',
       icon: 'desktop',
       subMenu: [
         { id: 1, title: 'Sistema 1', icon: 'desktop' },
         { id: 2, title: 'Sistema 2', icon: 'desktop' },
+        { id: 3, title: 'Sistema 3', icon: 'desktop' },
+        { id: 4, title: 'Sistema 4', icon: 'desktop' },
       ],
     },
     {
-      id: 6,
+      id: 7,
       title: 'Serviços',
       icon: 'user-cog',
       subMenu: [
         { id: 1, title: 'Serviço 1', icon: 'user-cog' },
         { id: 2, title: 'Serviço 2', icon: 'user-cog' },
+      ],
+    },
+
+    {
+      id: 8,
+      title: 'Documentos',
+      icon: 'file-alt',
+      subMenu: [
+        { id: 1, title: 'Documento 1', icon: 'file-alt' },
+        { id: 2, title: 'Documento 2', icon: 'file-alt' },
+        { id: 3, title: 'Documento 3', icon: 'file-alt' },
       ],
     },
   ];
