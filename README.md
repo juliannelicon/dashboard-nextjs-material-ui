@@ -2,8 +2,13 @@
 
 ## Tecnologias
 - [Next.js](https://nextjs.org/)
+- [ESLint](https://eslint.org/)
+- [Prettier](https://prettier.io/)
+- [TypeScript](https://www.typescriptlang.org/)
 - [Material-ui](https://mui.com/)
 - [Font Awesome](https://fontawesome.com/)
+- [date-fns](https://date-fns.org/)
+- [React Date Picker](https://react-day-picker.js.org/)
 
 ## Como executar
 
