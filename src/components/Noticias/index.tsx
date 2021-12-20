@@ -9,6 +9,8 @@ import {
   Typography,
 } from '@mui/material';
 
+import Title from '../Title';
+
 const myLoader = ({ src, width }: { src: string; width: number }) => {
   return `${src}?w=${width}&q=${75}`;
 };
@@ -16,6 +18,8 @@ const myLoader = ({ src, width }: { src: string; width: number }) => {
 export default function Noticias() {
   return (
     <>
+      <Title title="Notícias" titleButton="Todas Notícias" />
+
       <Box display="flex" flexDirection="column">
         <Image
           loader={myLoader}
@@ -34,7 +38,12 @@ export default function Noticias() {
         <Divider variant="inset" component="li" sx={{ ml: 0 }} />
         {[1, 2, 3].map(noticia => (
           <ListItem key={noticia} disablePadding>
-            <ListItem button disableGutters divider>
+            <ListItem
+              button
+              disableGutters
+              divider
+              title="Título da notícia com no máximo 2 linha"
+            >
               <ListItemText primary="Título da notícia com no máximo 2 linha" />
             </ListItem>
           </ListItem>
