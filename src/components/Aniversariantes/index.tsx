@@ -5,7 +5,7 @@ import Title from '../Title';
 export default function Aniversariantes() {
   return (
     <>
-      <Title title="Aniversariates" />
+      <Title title="Aniversariantes" />
 
       <Grid container spacing={1} columns={{ xs: 2, sm: 8, md: 2, lg: 2 }}>
         {[
