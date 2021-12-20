@@ -4,6 +4,7 @@ import Aniversariantes from '../components/Aniversariantes';
 import GridServicos from '../components/GridServicos';
 import GridSistemas from '../components/GridSistemas';
 import Noticias from '../components/Noticias';
+import Agenda from '../components/Agenda';
 
 export default function Home() {
   return (
@@ -69,7 +70,7 @@ export default function Home() {
             height: '100%',
           }}
         >
-          {/* <Agenda /> */}
+          <Agenda />
         </Paper>
       </Grid>
 
