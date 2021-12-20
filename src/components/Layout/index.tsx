@@ -33,7 +33,13 @@ export default function Layout({ children }: LayoutProps) {
 
       <Box
         component="main"
-        sx={{ flexGrow: 1, bgcolor: '#f1f1f1', height: '100vh', p: 2 }}
+        sx={{
+          p: 2,
+          flexGrow: 1,
+          bgcolor: '#f1f1f1',
+          height: '100vh',
+          overflow: 'auto',
+        }}
       >
         <Toolbar />
 
