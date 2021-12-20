@@ -13,7 +13,7 @@ export default function Agenda() {
 
   const event = [new Date(2021, 11, 7)];
 
-  const evetStyle = {
+  const eventStyle = {
     background: theme.palette.warning.main,
     color: theme.palette.primary.contrastText,
   };
@@ -24,7 +24,7 @@ export default function Agenda() {
         disableNavigation
         locale={pt}
         modifiers={{ today, event }}
-        modifierStyles={{ today: todayStyle, event: evetStyle }}
+        modifierStyles={{ today: todayStyle, event: eventStyle }}
         styles={{
           root: {
             margin: 0,
@@ -45,9 +45,11 @@ export default function Agenda() {
           cell: {
             border: '1px solid',
             borderColor: theme.palette.grey[400],
+            padding: theme.spacing(0.5),
           },
           day: {
             color: theme.palette.grey[800],
+            margin: 'auto',
           },
         }}
       />
