@@ -7,9 +7,9 @@ export default function GridSistemas() {
     <Grid
       container
       spacing={{ xs: 2, md: 3 }}
-      columns={{ xs: 12, sm: 6, md: 6, lg: 6 }}
+      columns={{ xs: 12, sm: 9, md: 9, lg: 9 }}
     >
-      {[1, 2, 3, 4, 5, 6, 7, 8].map(item => (
+      {[1, 2, 3, 4, 5, 6].map(item => (
         <Grid item xs={6} sm={3} md={3} lg={3} key={item}>
           <Button
             variant="outlined"
@@ -17,6 +17,7 @@ export default function GridSistemas() {
               textTransform: 'none',
               width: '100%',
               height: '100%',
+              justifyContent: 'flex-start',
             }}
           >
             <Box>

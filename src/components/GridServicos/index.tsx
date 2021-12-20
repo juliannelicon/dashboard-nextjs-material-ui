@@ -9,7 +9,7 @@ export default function GridServicos() {
       spacing={{ xs: 2, md: 3 }}
       columns={{ xs: 12, sm: 9, md: 9, lg: 9 }}
     >
-      {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(item => (
+      {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(item => (
         <Grid item xs={6} sm={3} md={3} lg={3} key={item}>
           <Button
             variant="contained"
