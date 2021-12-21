@@ -17,11 +17,9 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 
-import { ThemeProvider } from '@mui/material';
+import { AppThemeProvider } from '../contexts/theme';
 
 import Layout from '../components/Layout';
-
-import { theme } from '../styles/theme';
 
 config.autoAddCss = false;
 
@@ -42,10 +40,10 @@ library.add(
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ThemeProvider theme={theme}>
+    <AppThemeProvider>
       <Layout>
         <Component {...pageProps} />
       </Layout>
-    </ThemeProvider>
+    </AppThemeProvider>
   );
 }
