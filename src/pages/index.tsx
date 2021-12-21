@@ -19,6 +19,7 @@ export default function Home() {
                 flexDirection: 'column',
                 width: '100%',
                 height: '100%',
+                bgcolor: 'primary.main',
               }}
             >
               <GridSistemas />
@@ -41,7 +42,7 @@ export default function Home() {
         </Grid>
       </Grid>
 
-      <Grid item xs={12} sm={12} md={6} lg={5}>
+      <Grid item xs={12} sm={12} md={6} lg={6}>
         <Paper
           sx={{
             p: 2,
@@ -74,7 +75,7 @@ export default function Home() {
         </Paper>
       </Grid>
 
-      <Grid item xs={12} sm={12} md={6} lg={5}>
+      <Grid item xs={12} sm={12} md={6} lg={6}>
         <Paper
           sx={{
             p: 2,

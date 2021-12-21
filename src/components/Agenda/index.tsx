@@ -14,7 +14,7 @@ export default function Agenda() {
   const event = [new Date(2021, 11, 7)];
 
   const eventStyle = {
-    background: theme.palette.warning.main,
+    background: theme.palette.secondary.main,
     color: theme.palette.primary.contrastText,
   };
 
@@ -31,7 +31,7 @@ export default function Agenda() {
           },
           month: { width: '100%' },
           caption_label: {
-            color: theme.palette.grey[800],
+            color: theme.palette.text.secondary,
             textTransform: 'capitalize',
             fontSize: '1.25rem',
           },
@@ -44,11 +44,10 @@ export default function Agenda() {
           },
           cell: {
             border: '1px solid',
-            borderColor: theme.palette.grey[400],
-            padding: theme.spacing(0.25),
+            borderColor: theme.palette.divider,
           },
           day: {
-            color: theme.palette.grey[800],
+            color: theme.palette.text.secondary,
             margin: 'auto',
           },
         }}

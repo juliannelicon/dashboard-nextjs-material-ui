@@ -7,7 +7,11 @@ import Title from '../Title';
 export default function GridSistemas() {
   return (
     <>
-      <Title title="Sitemas" titleButton="Todos Sistemas" />
+      <Title
+        title="Sistemas"
+        titleButton="Todos Sistemas"
+        color="background.default"
+      />
 
       <Grid
         container
@@ -19,10 +23,15 @@ export default function GridSistemas() {
             <Button
               variant="outlined"
               sx={{
+                bgcolor: 'background.default',
                 textTransform: 'none',
                 width: '100%',
                 height: '100%',
                 justifyContent: 'flex-start',
+                '&:hover': {
+                  bgcolor: 'background.default',
+                  opacity: 0.8,
+                },
               }}
             >
               <Box>
