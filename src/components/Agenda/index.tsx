@@ -1,4 +1,4 @@
-import { Box, useTheme } from '@mui/material';
+import { Paper, useTheme } from '@mui/material';
 
 import { pt } from 'date-fns/locale';
 
@@ -19,7 +19,13 @@ export default function Agenda() {
   };
 
   return (
-    <Box>
+    <Paper
+      sx={{
+        p: 2,
+        display: 'flex',
+        flexDirection: 'column',
+      }}
+    >
       <DayPicker
         disableNavigation
         locale={pt}
@@ -52,6 +58,6 @@ export default function Agenda() {
           },
         }}
       />
-    </Box>
+    </Paper>
   );
 }

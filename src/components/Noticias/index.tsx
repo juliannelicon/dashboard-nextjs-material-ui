@@ -6,6 +6,7 @@ import {
   List,
   ListItem,
   ListItemText,
+  Paper,
   Typography,
 } from '@mui/material';
 
@@ -17,7 +18,15 @@ const myLoader = ({ src, width }: { src: string; width: number }) => {
 
 export default function Noticias() {
   return (
-    <>
+    <Paper
+      sx={{
+        p: 2,
+        display: 'flex',
+        flexDirection: 'column',
+        width: '100%',
+        height: '100%',
+      }}
+    >
       <Title title="Notícias" titleButton="Todas Notícias" />
 
       <Box display="flex" flexDirection="column">
@@ -36,7 +45,7 @@ export default function Noticias() {
 
       <List>
         <Divider variant="inset" component="li" sx={{ ml: 0 }} />
-        {[1, 2, 3].map(noticia => (
+        {[1, 2, 3, 4].map(noticia => (
           <ListItem key={noticia} disablePadding>
             <ListItem
               button
@@ -49,6 +58,6 @@ export default function Noticias() {
           </ListItem>
         ))}
       </List>
-    </>
+    </Paper>
   );
 }

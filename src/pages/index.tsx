@@ -1,4 +1,4 @@
-import { Grid, Paper } from '@mui/material';
+import { Grid } from '@mui/material';
 
 import Aniversariantes from '../components/Aniversariantes';
 import GridServicos from '../components/GridServicos';
@@ -9,84 +9,28 @@ import Agenda from '../components/Agenda';
 export default function Home() {
   return (
     <Grid container spacing={2}>
-      <Grid item xs={12} sm={12} md={6} lg={6}>
+      <Grid item xs={12} sm={12} md={6} lg={7}>
         <Grid container spacing={2}>
           <Grid item xs={12} sm={12} md={12} lg={12}>
-            <Paper
-              sx={{
-                p: 2,
-                display: 'flex',
-                flexDirection: 'column',
-                width: '100%',
-                height: '100%',
-                bgcolor: 'primary.main',
-              }}
-            >
-              <GridSistemas />
-            </Paper>
+            <GridSistemas />
           </Grid>
 
           <Grid item xs={12} sm={12} md={12} lg={12}>
-            <Paper
-              sx={{
-                p: 2,
-                display: 'flex',
-                flexDirection: 'column',
-                width: '100%',
-                height: '100%',
-              }}
-            >
-              <GridServicos />
-            </Paper>
+            <GridServicos />
           </Grid>
         </Grid>
       </Grid>
 
-      <Grid item xs={12} sm={12} md={6} lg={6}>
-        <Paper
-          sx={{
-            p: 2,
-            display: 'flex',
-            flexDirection: {
-              xs: 'column',
-              sm: 'column',
-              md: 'column',
-              lg: 'column',
-            },
-            width: '100%',
-            height: '100%',
-          }}
-        >
-          <Noticias />
-        </Paper>
+      <Grid item xs={12} sm={12} md={6} lg={5}>
+        <Noticias />
       </Grid>
 
-      <Grid item xs={12} sm={12} md={6} lg={6}>
-        <Paper
-          sx={{
-            p: 2,
-            display: 'flex',
-            flexDirection: 'column',
-            width: '100%',
-            height: '100%',
-          }}
-        >
-          <Agenda />
-        </Paper>
+      <Grid item xs={12} sm={12} md={6} lg={7}>
+        <Agenda />
       </Grid>
 
-      <Grid item xs={12} sm={12} md={6} lg={6}>
-        <Paper
-          sx={{
-            p: 2,
-            display: 'flex',
-            flexDirection: 'column',
-            width: '100%',
-            height: '100%',
-          }}
-        >
-          <Aniversariantes />
-        </Paper>
+      <Grid item xs={12} sm={12} md={6} lg={5}>
+        <Aniversariantes />
       </Grid>
     </Grid>
   );
