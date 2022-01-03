@@ -76,6 +76,7 @@ export default function Configuracoes() {
         </MenuItem>
 
         <Divider />
+
         <MenuItem>
           <Box>
             <Typography>Selecione modo:</Typography>
@@ -99,10 +100,9 @@ export default function Configuracoes() {
 
             <Grid container>
               {cores.map(cor => (
-                <Grid item xs={2}>
+                <Grid item xs={2} key={cor.id}>
                   <IconButton
-                    key={cor.id}
-                    onClick={() => addColorPrimary(cor.color)}
+                    onClick={() => addColorPrimary(cor)}
                     disabled={cor.color[500] === theme.palette.primary.main}
                     sx={{
                       '&.Mui-disabled': {
