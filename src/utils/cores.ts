@@ -1,4 +1,10 @@
-import { colors } from '@mui/material';
+import { colors, PaletteColorOptions } from '@mui/material';
+
+export interface CoresProps {
+  id: number;
+  label: string;
+  color: PaletteColorOptions;
+}
 
 export const cores = [
   { id: 1, label: 'brown', color: colors.brown },
