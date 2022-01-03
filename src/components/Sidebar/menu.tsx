@@ -98,6 +98,7 @@ export default function Menu({ toggleOpen }: MenuProps) {
           edge="start"
           sx={{ mr: 2 }}
           onClick={toggleOpen}
+          color="primary"
         >
           <FontAwesomeIcon icon="angle-left" />
         </IconButton>
@@ -111,7 +112,7 @@ export default function Menu({ toggleOpen }: MenuProps) {
         }
         return (
           <ListItem button key={item.id} title={item.title}>
-            <ListItemIcon>
+            <ListItemIcon sx={{ color: 'primary.main' }}>
               <FontAwesomeIcon icon={item.icon} size="lg" />
             </ListItemIcon>
             <ListItemText primary={item.title} />

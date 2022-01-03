@@ -31,13 +31,13 @@ export default function SubMenu({ item }: SubMenuProps) {
   return (
     <>
       <ListItem button title={item.title} onClick={toggleModal}>
-        <ListItemIcon>
+        <ListItemIcon sx={{ color: 'primary.main' }}>
           <FontAwesomeIcon icon={item.icon} size="lg" />
         </ListItemIcon>
 
         <ListItemText primary={item.title} />
 
-        <ListItemIcon>
+        <ListItemIcon sx={{ color: 'primary.main' }}>
           {open ? (
             <FontAwesomeIcon icon="angle-down" size="lg" />
           ) : (
@@ -50,7 +50,7 @@ export default function SubMenu({ item }: SubMenuProps) {
         <List component="div" disablePadding>
           {item.subMenu?.map(subItem => (
             <ListItem button key={subItem.id} sx={{ pl: 4 }}>
-              <ListItemIcon>
+              <ListItemIcon sx={{ color: 'primary.main' }}>
                 <FontAwesomeIcon icon={subItem.icon} size="sm" />
               </ListItemIcon>
 
