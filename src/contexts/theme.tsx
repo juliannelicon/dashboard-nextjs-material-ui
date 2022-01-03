@@ -3,6 +3,7 @@ import {
   Dispatch,
   SetStateAction,
   useContext,
+  useEffect,
   useMemo,
   useState,
 } from 'react';
@@ -15,6 +16,8 @@ import {
   colors,
 } from '@mui/material';
 
+import { cores, CoresProps } from '../utils/cores';
+
 interface ThemeProviderProps {
   children: JSX.Element;
 }
@@ -24,7 +27,6 @@ interface ThemeContextData {
   mode: PaletteMode;
   setMode: Dispatch<SetStateAction<PaletteMode>>;
   setColorPrimary: Dispatch<SetStateAction<PaletteColorOptions>>;
-  setColorSecondary: Dispatch<SetStateAction<PaletteColorOptions>>;
 }
 
 const ThemeContext = createContext({} as ThemeContextData);
@@ -33,12 +35,20 @@ export function AppThemeProvider({
   children,
 }: ThemeProviderProps): JSX.Element {
   const [mode, setMode] = useState<PaletteMode>('light');
+
   const [colorPrimary, setColorPrimary] = useState<PaletteColorOptions>(
     colors.indigo,
   );
-  const [colorSecondary, setColorSecondary] = useState<PaletteColorOptions>(
-    colors.red,
-  );
+
+  useEffect(() => {
+    const corUsuario = localStorage.getItem('@dashboard:cor');
+
+    if (corUsuario) {
+      const cor = cores.find(color => color.label === corUsuario);
+
+      if (cor) setColorPrimary(cor.color);
+    }
+  }, []);
 
   const theme = useMemo(
     () =>
@@ -46,14 +56,13 @@ export function AppThemeProvider({
         palette: {
           mode,
           primary: colorPrimary,
-          secondary: colorSecondary,
         },
       }),
-    [mode, colorPrimary, colorSecondary],
+    [mode, colorPrimary],
   );
 
   const value = useMemo(
-    () => ({ theme, mode, setMode, setColorPrimary, setColorSecondary }),
+    () => ({ theme, mode, setMode, setColorPrimary }),
     [theme, mode],
   );
 
@@ -63,20 +72,15 @@ export function AppThemeProvider({
 }
 
 export function useAppTheme() {
-  const { theme, mode, setMode, setColorPrimary, setColorSecondary } =
-    useContext(ThemeContext);
+  const { theme, mode, setMode, setColorPrimary } = useContext(ThemeContext);
 
   const toggleMode = () => {
     setMode(prevMode => (prevMode === 'light' ? 'dark' : 'light'));
   };
 
-  const addColorPrimary = (color: PaletteColorOptions) => {
-    setColorPrimary(color);
-    console.log('addColorPrimary');
-  };
-
-  const addColorSecondary = (color: PaletteColorOptions) => {
-    setColorSecondary(color);
+  const addColorPrimary = (cor: CoresProps) => {
+    localStorage.setItem('@dashboard:cor', cor.label);
+    setColorPrimary(cor.color);
   };
 
   return {
@@ -84,6 +88,5 @@ export function useAppTheme() {
     mode,
     toggleMode,
     addColorPrimary,
-    addColorSecondary,
   };
 }
