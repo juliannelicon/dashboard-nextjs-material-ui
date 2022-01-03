@@ -8,6 +8,8 @@ import {
   faBars,
   faBuilding,
   faCalendarAlt,
+  faCircle,
+  faCog,
   faCommentAlt,
   faDesktop,
   faEnvelope,
@@ -36,6 +38,8 @@ library.add(
   faAngleDown,
   faBuilding,
   faFileAlt,
+  faCircle,
+  faCog,
 );
 
 export default function MyApp({ Component, pageProps }: AppProps) {
