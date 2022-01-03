@@ -4,15 +4,15 @@ import {
   AppBar as MuiAppBar,
   AppBarProps as MuiAppBarProps,
   Avatar,
-  Box,
   IconButton,
   Stack,
-  Switch,
   Toolbar,
   Typography,
 } from '@mui/material';
+
 import { styled } from '@mui/material/styles';
-import { useAppTheme } from '../../contexts/theme';
+
+import Configuracoes from './Configuracoes';
 
 interface AppBarProps extends MuiAppBarProps {
   open: boolean;
@@ -47,8 +47,6 @@ interface TopBar extends AppBarProps {
 }
 
 export default function TopBar({ open, marginleft, toggleOpen }: TopBar) {
-  const { mode, toggleMode } = useAppTheme();
-
   return (
     <AppBar position="fixed" open={open} marginleft={marginleft}>
       <Toolbar>
@@ -69,13 +67,8 @@ export default function TopBar({ open, marginleft, toggleOpen }: TopBar) {
         </Typography>
 
         <Stack direction="row" spacing={2}>
-          <Box>
-            Tema {mode === 'dark' ? 'Escuro' : 'Claro'}:
-            <Switch
-              sx={{ color: mode === 'dark' ? 'secondary' : 'primary' }}
-              onChange={toggleMode}
-            />
-          </Box>
+          <Configuracoes />
+
           <Avatar>J</Avatar>
         </Stack>
       </Toolbar>
