@@ -42,11 +42,16 @@ export function AppThemeProvider({
 
   useEffect(() => {
     const corUsuario = localStorage.getItem('@dashboard:cor');
+    const modoUsuario = localStorage.getItem('@dashboard:modo');
 
     if (corUsuario) {
       const cor = cores.find(color => color.label === corUsuario);
 
       if (cor) setColorPrimary(cor.color);
+    }
+
+    if (modoUsuario) {
+      setMode(modoUsuario as PaletteMode);
     }
   }, []);
 
@@ -75,6 +80,10 @@ export function useAppTheme() {
   const { theme, mode, setMode, setColorPrimary } = useContext(ThemeContext);
 
   const toggleMode = () => {
+    localStorage.setItem(
+      '@dashboard:modo',
+      mode === 'light' ? 'dark' : 'light',
+    );
     setMode(prevMode => (prevMode === 'light' ? 'dark' : 'light'));
   };
 
