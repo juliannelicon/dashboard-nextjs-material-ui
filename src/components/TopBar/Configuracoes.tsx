@@ -7,8 +7,7 @@ import {
   Divider,
   Grid,
   IconButton,
-  Menu,
-  MenuItem,
+  Popover,
   ToggleButton,
   ToggleButtonGroup,
   Typography,
@@ -33,11 +32,11 @@ export default function Configuracoes() {
   };
   return (
     <>
-      <IconButton color="inherit" onClick={handleClick}>
+      <IconButton color="inherit" onClick={handleClick} title="Configurações">
         <FontAwesomeIcon icon="cog" />
       </IconButton>
 
-      <Menu
+      <Popover
         anchorEl={anchorEl}
         id="account-menu"
         open={open}
@@ -71,13 +70,10 @@ export default function Configuracoes() {
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
-        <MenuItem>
-          <Typography>Configurar Tema</Typography>
-        </MenuItem>
+        <Typography sx={{ p: 2 }}>Configurar Tema</Typography>
 
         <Divider />
-
-        <MenuItem>
+        <Box sx={{ p: 2 }}>
           <Box>
             <Typography>Selecione modo:</Typography>
 
@@ -88,13 +84,15 @@ export default function Configuracoes() {
               exclusive
               sx={{ p: 1 }}
             >
-              <ToggleButton value="left">Claro</ToggleButton>
-              <ToggleButton value="right">Escuro</ToggleButton>
+              <ToggleButton value="left" disabled={mode === 'light'}>
+                Claro
+              </ToggleButton>
+              <ToggleButton value="right" disabled={mode === 'dark'}>
+                Escuro
+              </ToggleButton>
             </ToggleButtonGroup>
           </Box>
-        </MenuItem>
 
-        <MenuItem>
           <Box maxWidth={250}>
             <Typography>Selecione cor:</Typography>
 
@@ -120,8 +118,8 @@ export default function Configuracoes() {
               ))}
             </Grid>
           </Box>
-        </MenuItem>
-      </Menu>
+        </Box>
+      </Popover>
     </>
   );
 }
