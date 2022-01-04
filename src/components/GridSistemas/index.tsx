@@ -19,7 +19,7 @@ export default function GridSistemas() {
       <Title
         title="Sistemas"
         titleButton="Todos Sistemas"
-        color="background.default"
+        color="primary.contrastText"
       />
 
       <Grid
@@ -32,11 +32,17 @@ export default function GridSistemas() {
             <Button
               variant="outlined"
               sx={{
-                bgcolor: 'background.default',
                 textTransform: 'none',
                 width: '100%',
                 height: '100%',
                 justifyContent: 'flex-start',
+                bgcolor: 'background.default',
+                backgroundImage: theme =>
+                  theme.palette.mode === 'light'
+                    ? 'white'
+                    : 'linear-gradient(45deg, #272727 30%, #272727 90%)',
+                color: theme =>
+                  theme.palette.mode === 'light' ? 'primary.main' : 'white',
                 '&:hover': {
                   bgcolor: 'background.default',
                   opacity: 0.8,
