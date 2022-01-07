@@ -19,6 +19,8 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 
+import { makeServer } from '../services/mirage';
+
 import { AppThemeProvider } from '../contexts/theme';
 
 import Layout from '../components/Layout';
@@ -41,6 +43,8 @@ library.add(
   faCircle,
   faCog,
 );
+
+makeServer();
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
