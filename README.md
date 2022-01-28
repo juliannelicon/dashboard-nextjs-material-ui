@@ -15,8 +15,8 @@
 Clone o projeto e acesse a pasta do mesmo:
 
 ```bash
-$ git clone https://gitlab.defensoria.to.def.br/defensoria/portaldoservidor-frontend.git
-$ cd portaldoservidor-frontend
+$ git clone https://github.com/juliannelicon/dashboard-nextjs-material-ui.git
+$ cd dashboard-nextjs-material-ui
 ```
 
 Para iniciá-lo, siga os passos abaixo:
